@@ -24,4 +24,4 @@ class Solution(object):
                     grid_data[grid_i].add(num)
 
                     
-        return True 
+        return True      
