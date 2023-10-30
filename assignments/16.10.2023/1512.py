@@ -2,14 +2,15 @@ class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
 
         count = 0
+        d = {}
 
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
+        for i in nums:
+            if i in d:
+                count += d[i]
+                d[i] += 1
+            else:
+                d[i] = 1
 
-                if nums[i] == nums[j]:
-                    count += 1
-                
-        return count            
-
+        return count
 
         

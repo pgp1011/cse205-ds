@@ -1,16 +1,18 @@
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        l = len(nums)
-        arr = []
-        for i in range(l):
-            if nums[i] not in arr:
-                arr.append(nums[i])
+        d = {}
+        for i in nums:
+
+            if i in d:
+                rep = i
+                d[i] += 1
+                           
             else:
-                rep = nums[i]
+                d[i] = 1
 
-        sum1 = l*(l+1)//2
-        sum2 = sum(arr)
+        for j in range(1,len(nums)+1):
 
-        miss = sum1 - sum2
-        return [ rep , miss]
-        
+            if j not in d:
+                miss = j
+
+        return [rep, miss]
