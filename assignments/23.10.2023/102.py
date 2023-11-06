@@ -5,12 +5,11 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
-
-        if not root:
-            return 0
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        res = []
         
-        level = 0
+        if not root:
+            return []
 
         list1 = [root]
         while list1:
@@ -21,8 +20,14 @@ class Solution:
                 if node.left:
                     list1.append(node.left)
                 if node.right:
-                    list1.append(node.right)
+                    list1. append(node.right)
 
-            level += 1
-           
-        return level
+                row.append(node.val)
+            res.append(row)
+
+        return res    
+
+
+
+        
+        
